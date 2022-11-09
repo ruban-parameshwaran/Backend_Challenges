@@ -1,0 +1,50 @@
+@import "../css/Variables";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+
+/****** ======== custom classes  ========== *********/
+
+// center div by x axis and y axis
+.alignItemsCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// grid
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.container {
+    flex-wrap: inherit;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.75rem;
+    padding-left: var(--bs-gutter-x, .75rem);
+    padding-right: 0.75rem;
+    padding-right: var(--bs-gutter-x, .75rem);
+    width: 100%;
+}
+
+// ant custom styles 
+.site-page-header {
+    border: 1px solid rgb(235, 237, 240);
+}
+
+.app{
+    background-color: $secondary;
+    height: 100vh;
+}

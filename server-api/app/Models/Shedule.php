@@ -13,4 +13,19 @@ class Shedule extends Model
         'shift_id',
         'location_id'
     ];
+
+    // relationships
+
+    public function employee() {
+        return $this->belongsTo(Employee::class);
+    }
+
+    public function location() {
+        return $this->belongsTo(Location::class);
+    }
+
+    public function shift() {
+        return $this->belongsTo(Shifts::class);
+    }
+
 }

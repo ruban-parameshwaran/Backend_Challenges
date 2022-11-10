@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('emp_id');
-            $table->boolean('checkin');
-            $table->boolean('checkout');
+            $table->unsignedBigInteger('emp_id')->unsigned();
+            $table->timestamp('checkin')->nullable();
+            $table->timestamp('checkout')->nullable();
+
             $table->foreign('emp_id')->references('id')->on('employees')->cascadeOnDelete();
             $table->timestamps();
         });

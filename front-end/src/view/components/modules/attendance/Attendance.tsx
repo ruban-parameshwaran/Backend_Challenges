@@ -7,10 +7,11 @@ import { TableDataType } from "../../../../interface/HeaderInterface";
 interface DataType {
   key: string;
   name: string;
+  address:string,
   checkin: number;
   checkout: number;
+  position:string,
   totalWH : number,
-  tags: string[];
 }
 
 const Attendance = () => {
@@ -24,44 +25,29 @@ const Attendance = () => {
       render: text => <a>{text}</a>,
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-    },
-    {
       title: 'Address',
       dataIndex: 'address',
       key: 'address',
     },
     {
-      title: 'Tags',
-      key: 'tags',
-      dataIndex: 'tags',
-      render: (_, { tags }) => (
-        <>
-          {tags.map(tag => {
-            let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
-              color = 'volcano';
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
+      title: 'Checkin',
+      dataIndex: 'checkin',
+      key: 'checkin',
     },
     {
-      title: 'Action',
-      key: 'action',
-      render: (_, record) => (
-        <Space size="middle">
-          <a>Invite {record.name}</a>
-          <a>Delete</a>
-        </Space>
-      ),
+      title: 'Checkout',
+      dataIndex: 'checkout',
+      key: 'checkout',
+    },
+    {
+      title: 'Position',
+      key: 'position',
+      dataIndex: 'position',
+    },
+    {
+      title: 'Total Working Hours',
+      key: 'total_working_hours',
+      dataIndex: 'totalWH',
     },
   ];
   
@@ -69,12 +55,12 @@ const Attendance = () => {
     {
       key: '1',
       name: 'John Brown',
+      address:"No 3 ",
       checkin: 32,
       checkout: 32,
+      position:"Manager",
       totalWH: 32,
-      tags: ['nice', 'developer'],
     },
-
   ];
 
   const { Content } = Layout;

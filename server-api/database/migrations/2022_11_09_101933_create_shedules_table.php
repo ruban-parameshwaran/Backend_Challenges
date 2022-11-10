@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('shedules', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
-            $table->unsignedBigInteger('emp_id');
+            $table->id();
+            $table->unsignedBigInteger('emp_id')->unsigned();
             $table->unsignedBigInteger('location_id');
             $table->unsignedBigInteger('shift_id');
             $table->enum('day',['monday','tuesday','wednesday','thursday','friday']);

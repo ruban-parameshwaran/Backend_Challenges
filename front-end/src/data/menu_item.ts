@@ -5,6 +5,11 @@ export const menu_data =  [
         "isAuth" : false,
     },
     {
+        "name" : "Employees",
+        "route" : "/employee",
+        "isAuth" : false,
+    },
+    {
         "name" : "Attendance",
         "route" : "/attendance",
         "isAuth" : false,

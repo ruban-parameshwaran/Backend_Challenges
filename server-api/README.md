@@ -1,11 +1,12 @@
 ## Get Started
 
-I've included the seeder files for you to quickly test the code.
+Use postman for testing api, [import attendance execel file using postman]
+add sample data to shift table 
 
 Just run:
 
 composer install
 
-php artisan migrate && php artisan db:seed
+php artisan migrate
 
 

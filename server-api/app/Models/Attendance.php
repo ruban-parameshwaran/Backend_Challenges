@@ -9,15 +9,19 @@ class Attendance extends Model
 {
     use HasFactory;
 
-    protected $casts = [
-        'checkin' => 'date:hh:mm',
-        'checkout' => 'date:hh:mm'
+    protected $fillable = [
+        'emp_id',
+        'checkin',
+        'checkout',
+        'total_working_hours'
     ];
+
+
 
     // relationship
 
     public function employee () {
-        return $this->hasOne(Employee::class);
+        return $this->belongsTo(Employee::class,'emp_id');
     }
 
 }

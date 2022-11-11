@@ -16,4 +16,10 @@ class Employee extends Model
         'telephone'
     ];
 
+    // relationship
+
+    public function attendance(){
+        $this->return->hasMany(Attendance::class,'emp_id');
+    }
+
 }

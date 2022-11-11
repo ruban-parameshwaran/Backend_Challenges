@@ -21,7 +21,7 @@ class EmployeeController extends Controller
 
     public function store(EmployeeRequest $request) {
         try{
-            $employee = $this->attService->store($request->all());
+            $employee = $this->attService->employeeStore($request->all());
             $data =  new EmployeeResource($employee);
 
             return response()->json([

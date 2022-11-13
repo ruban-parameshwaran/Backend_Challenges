@@ -1,16 +1,11 @@
-## Quick Start
-
-### `Clone Front-end folder`
-
-### `npm install`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-Then run this command to start your local server.
-
-### `npm start`
-
-To build the project
-
-### `yarn build`
+## About
+<p>This repository is the source code for Human Resource Context</p>
+## Get Started
+<p>Edit [constant->AppConst.ts] from changing api url </p>
+<p>Run following Commands</p>
+<code>
+npm install
+</code>
+<code>
+npm start
+</code>

@@ -2,6 +2,7 @@ import { Layout, PageHeader } from "antd";
 import React, { Suspense } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { TextHelper } from "../helper/TextHelper";
+import Loader from "../loader/Loader";
 
 const LazyNotFound = React.lazy(() => import("../view/components/NotFound"));
 const LazyHeader = React.lazy(() => import("../view/layout/header/Header"));
@@ -18,6 +19,9 @@ const LazyEmployee = React.lazy(
   () => import("../view/components/modules/employee/Employee")
 );
 
+const LazyDashboard = React.lazy(
+  () => import("../view/components/modules/dashboard/Dashboard")
+);
 
 const AppRoutes: React.FC = () => {
   const { Header, Footer, Content } = Layout;
@@ -32,7 +36,7 @@ const AppRoutes: React.FC = () => {
 
   return (
     <Layout>
-      <Suspense fallback={<h2>Loading...</h2>}>
+      <Suspense fallback={<Loader />  }>
         <LazyHeader />
         <PageHeader
           className="site-page-header"
@@ -41,7 +45,7 @@ const AppRoutes: React.FC = () => {
         />
         <Content>
           <Routes>
-            <Route path="" element={<h2>Dashboard</h2>} />
+            <Route path="" element={<LazyDashboard />} />
             <Route path="attendance" element={<LazyAttendance />} />
             <Route path="shedule" element={<LazyShedule />} />
             <Route path="employee" element={<LazyEmployee />} />

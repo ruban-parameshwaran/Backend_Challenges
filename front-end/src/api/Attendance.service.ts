@@ -10,5 +10,14 @@ export class AttendanceService {
             return e;
         }
     } 
+    
+    public static getEmployeeStats = async () => {
+        try{
+            const response = await config.get('employee/stats');
+            return response.data;
+        }catch(e){
+            return e;
+        }
+    }
 
 }

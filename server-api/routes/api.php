@@ -14,6 +14,7 @@ Route::prefix('v1')->group(function () {
 
     Route::controller(EmployeeController::class)->group(function () {
         Route::post('employee', 'store');
+        Route::get('employee/stats', 'statistics');
     });
 
     Route::controller(ShiftController::class)->group(function() {

@@ -1,5 +1,6 @@
 @import "../css/Variables";
 
+
 * {
     padding: 0;
     margin: 0;
@@ -47,4 +48,18 @@ body {
 .app{
     background-color: $secondary;
     height: 100vh;
+}
+
+.loader{
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 3;
 }

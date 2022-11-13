@@ -41,10 +41,11 @@ class AttendanceController extends Controller
     public function store(Request $request)
     {
         try {
-              Excel::import(new AttendaceImport, $request->file('file'));
+              Excel::import(new AttendaceImport, $request->file('img_path'));
               return response()->json([
                   "message" => true
               ], RequestType::CODE_201);
+
         } catch (Exception $e) {
             return response()->json([
                 "message" => false,

@@ -1,6 +1,6 @@
-import { Layout, Space, Tag } from "antd";
+import { Layout, Space, Spin, Tag } from "antd";
 import { Col, Row } from "antd";
-import type { ColumnsType } from 'antd/es/table';
+import type { ColumnsType } from "antd/es/table";
 import Table from "antd/es/table";
 import { useEffect, useState } from "react";
 import { AttendanceService } from "../../../../api/Attendance.service";
@@ -9,55 +9,51 @@ import { TableDataType } from "../../../../interface/HeaderInterface";
 interface DataType {
   key: string;
   name: string;
-  address:string,
+  address: string;
   checkin: number;
   checkout: number;
-  position:string,
-  totalWH : number,
+  position: string;
+  totalWH: number;
 }
 
 const Attendance = () => {
   // table columns
-  
+
   const columns: ColumnsType<DataType> = [
     {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      render: text => <a>{text}</a>,
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+      render: (text) => <a>{text}</a>,
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: "Address",
+      dataIndex: "address",
+      key: "address",
     },
     {
-      title: 'Checkin',
-      dataIndex: 'checkin',
-      key: 'checkin',
+      title: "Checkin",
+      dataIndex: "checkin",
+      key: "checkin",
     },
     {
-      title: 'Checkout',
-      dataIndex: 'checkout',
-      key: 'checkout',
+      title: "Checkout",
+      dataIndex: "checkout",
+      key: "checkout",
     },
     {
-      title: 'Position',
-      key: 'position',
-      dataIndex: 'position',
+      title: "Position",
+      key: "position",
+      dataIndex: "position",
     },
     {
-      title: 'Total Working Hours',
-      key: 'total_working_hours',
-      dataIndex: 'totalWH',
+      title: "Total Working Hours",
+      key: "total_working_hours",
+      dataIndex: "totalWH",
     },
   ];
 
-
-
-  const data: DataType[] = [
-   
-  ];
+  const data: DataType[] = [];
 
   const { Content } = Layout;
 
@@ -65,17 +61,17 @@ const Attendance = () => {
 
   const [workingHours, setWorkingHours] = useState<any>([]);
   /**********   Life cycle Method   ***********/
-  workingHours.map((item:any) => {
+  workingHours.map((item: any) => {
     data.push({
-          key: item.id,
-          name: item.employee.name,
-          address:"No 3 ",
-          checkin: item.checkin,
-          checkout: item.checkout,
-          position:item.employee.position,
-          totalWH: item.total_working_hours,
-    })
-  })
+      key: item.id,
+      name: item.employee.name,
+      address: "No 3 ",
+      checkin: item.checkin,
+      checkout: item.checkout,
+      position: item.employee.position,
+      totalWH: item.total_working_hours,
+    });
+  });
 
   useEffect(() => {
     const controller = new AbortController();
@@ -94,15 +90,23 @@ const Attendance = () => {
     };
   }, []);
 
-
   /**********   end  ***********/
+
+  // loading animation
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  setTimeout(() => {
+    setIsLoading(true);
+  }, 800);
 
   return (
     <Layout>
       <div className="container">
         <Row>
           <Col xs={24} md={24}>
-            <Table columns={columns} dataSource={data} />
+            {!isLoading && <Spin />}
+            {isLoading && <Table columns={columns} dataSource={data} />}
           </Col>
         </Row>
       </div>

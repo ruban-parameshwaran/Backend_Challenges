@@ -5,7 +5,7 @@ const config = axios.create({
     timeout: 1000,
     headers: {
       'Accept': 'application/json',
-      'Content-Type' : 'application/json'
+     "Content-type": "multipart/form-data",
     }
   });
 

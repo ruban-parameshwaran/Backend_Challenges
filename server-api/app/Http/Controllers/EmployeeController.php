@@ -37,4 +37,37 @@ class EmployeeController extends Controller
         }
     }
 
+    public function statistics() {
+        try{
+            $employee = $this->attService->getAllEmployeeList();
+            $employeeWorkingHours = $this->attService->getAllAttendaceList();
+            $dataArray = [];
+            $obj = (object)[];
+
+            $totalEmployee = count($employee);
+            $totalWorkingHours = collect($employeeWorkingHours)->pluck('total_working_hours');
+            $totalHours = 0;
+
+            foreach($totalWorkingHours as $hours){
+                // calculate total working hours
+                $totalHours += (int)$hours;
+            }   
+
+            $obj->totalEmployees = $totalEmployee;
+            $obj->totalWorkingHours = $totalHours;
+            
+            array_push($dataArray,$obj);
+            return response()->json([
+                "message" => true,
+                "data" => $dataArray
+            ],RequestType::CODE_201);
+
+        }catch(Exception $e){
+            return response()->json([
+                "message" => false,
+                "data" => $e->getMessage()
+            ],$e->getCode());
+        }
+    }
+
 }

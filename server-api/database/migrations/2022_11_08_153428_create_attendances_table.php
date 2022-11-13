@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('checkout')->nullable();
             $table->string('total_working_hours');
             
-            $table->foreign('emp_id')->references('id')->on('employees')->cascadeOnDelete();
+            $table->foreign('emp_id')->references('id')->on('employees')->onDelete('cascade');
             $table->timestamps();
         });
     }

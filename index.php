@@ -6,11 +6,20 @@ the elements occurring more than once in the given array
 $a = [];
 $output = [];
 $outputTwo = [];
-function findDuplicates(...$a){
+
+function findDuplicates(...$a)
+{
     // array unique array method will remove the unique values from an array
-    return array_unique($a);
+    foreach ($a as $value) {
+        // check whether array contains numbers
+        if (is_nan($value)) {
+            echo "given array values must contain numbers only...!";
+            exit;
+        }
+        return array_unique($a);
+    }
 }
 
-$values = findDuplicates(12,12,45,45,30);
-$values = implode(" ",$values);
+$values = findDuplicates(12, 20, 45, 45, 30);
+$values = implode(" ", $values);
 echo "{$values} occur more than once in the given array";

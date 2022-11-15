@@ -19,5 +19,5 @@
   <li><code>3.composer install && composer update</code></li>
   <li><code>4.php artisan migrate:refresh</code></li>
   <li><code>5.npm install && npm start</code></li>
-  <li><code>7.php artisan serve</code></li>
+  <li><code>6.php artisan serve</code></li>
 </ul>
